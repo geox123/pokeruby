@@ -85,7 +85,7 @@ void SetDefaultOptions(void)
     gSaveBlock2.optionsWindowFrameType = 0;
     gSaveBlock2.optionsSound = OPTIONS_SOUND_MONO;
     gSaveBlock2.optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
-    gSaveBlock2.optionsBattleSceneOff = FALSE;
+    gSaveBlock2.optionsBattleSceneOff = TRUE;
     gSaveBlock2.regionMapZoom = FALSE;
 }
 
