@@ -434,7 +434,7 @@ static const struct Font sFonts[] =
     { 3, (u8 *)sBrailleGlyphs,  8,   0 },
 };
 
-static const u8 sTextSpeedDelays[] = { 6, 3, 1 }; // slow, mid, fast
+static const u8 sTextSpeedDelays[] = { 3, 1, 0 }; // slow, mid, fast
 
 static const u8 sExtCtrlCodeLengths[] =
 {
@@ -2491,6 +2491,8 @@ static u8 UpdateWindowText(struct Window *win)
         return TRUE;
     }
 
+    do
+    {
     PrintNextChar(win);
 
     switch (win->state)
@@ -2513,6 +2515,9 @@ static u8 UpdateWindowText(struct Window *win)
         win->delayCounter = GetTextDelay(win);
         break;
     }
+    } while (win->state == WIN_STATE_CHAR_DELAY && win->delayCounter == 0);
+
+
 
     return 0;
 }
